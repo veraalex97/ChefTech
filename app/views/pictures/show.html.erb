@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @picture.title %>
+</p>
+
+<p>
+  <%= image_tag @picture.url %>
+</p>
+
+<h3>Reviews</h3>
+
+<% @picture.reviews.each do |review| %>
+	<p>
+		<%= review.comment %>
+		<br>
+		Added: <%= time_ago_in_words review.created_at %> ago
+	</p>
+<% end %>
+
+<h3>New Review</h3>
+<%= render 'reviews/form' %>
+
+<%= link_to 'Edit', edit_picture_path(@picture) %> |
+<%= link_to 'Back', pictures_path %>
