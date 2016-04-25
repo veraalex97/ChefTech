@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+
+gem "paperclip", "~> 5.0.0.beta1"
+
 gem 'devise', '~> 4.0'
 
 gem 'rails_12factor'
