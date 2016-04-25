@@ -26,12 +26,10 @@
         <td><%= picture.title %></td>
         <td><%= image_tag picture.url %></td>
         <td><%= picture.user.email %></td>
-        <!-- <td><%= pluralize(picture.votes.count, "vote") %></td>
-        <td><%= button_to '+1', upvote_picture_path(picture), method: :post %></td> -->
-        <td><%= link_to 'Show', picture %></td>
-        <%if picture.user == current_user %>
         <td><%= pluralize(picture.votes.count, "vote") %></td>
         <td><%= button_to '+1', upvote_picture_path(picture), method: :post %></td>
+        <td><%= link_to 'Show', picture %></td>
+        <%if picture.user == current_user %>
         <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
         <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
