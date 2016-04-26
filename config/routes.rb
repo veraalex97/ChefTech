@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :users
   resources :pictures do
     member do
-      post 'upvote'
+      put 'like', to: "pictures#upvote"
+      put 'dislike', to: "pictures#downvote"
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

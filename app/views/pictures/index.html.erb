@@ -14,8 +14,9 @@
   </div>
 </nav>
 
-<h4 class="page-header text-center">My Photo Gallery</h4>
-<div style="height:355px;width:100%;border:9px solid  #4B515D;;font:16px/26px Georgia, Garamond, Serif;background-color: rgba(255, 255, 255, 0.5);overflow:auto;">
+<h4 class="page-header text-center">Chef Tech: Cooking With Fire</h4>
+<div style="height:355px;width:100%;border:9px solid black;font:16px/26px Georgia, Garamond, Serif;background-color: rgba(255, 255, 255, 0.5);overflow:auto;">
+
 
 <table class="table">
 
@@ -26,19 +27,32 @@
       <th>Image</th>
       <th>User</th>
       <th colspan="1"></th>
-      <th>Votes</th>
     </tr>
   </thead>
 
   <tbody>
     <% @pictures.each do |picture| %>
       <tr>
+        <td><% @pictures.each do |picture| %>
+          <h6><%= link_to picture.title, picture %><br>
+            Submitted <%= time_ago_in_words(picture.created_at) %>
+            by <%= picture.user.email %>
+          </h6>
+
+          <%= link_to like_picture_path(picture), method: :put do %>
+          Upvote
+            <%= picture.get_upvotes.size %>
+          <% end %>
+
+          <%= link_to dislike_picture_path(picture), method: :put do %>
+          Downvote
+            <%= picture.get_downvotes.size %>
+          <% end %>
+          <% end %></td>
         <td><%= picture.title %></td>
         <!-- <td><%= image_tag picture.url %></td> -->
         <td><%= image_tag picture.image.url(:thumb) %>
         <td><%= picture.user.username %></td>
-        <td><%= pluralize(picture.votes.count, "vote") %></td>
-        <td><%= button_to '+1', upvote_picture_path(picture), method: :post %></td>
         <td><%= link_to 'Show', picture %></td>
         <%if picture.user == current_user %>
         <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
@@ -62,3 +76,5 @@
 <br>
 
 <%= link_to 'New Picture', new_picture_path, style: "color:white", class: "btn stylish-color btn-block" %>
+
+

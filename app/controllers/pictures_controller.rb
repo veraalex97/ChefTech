@@ -1,9 +1,25 @@
 class PicturesController < ApplicationController
-  before_action :set_picture, only: [:show, :edit, :update, :destroy, :vote]
+  before_action :set_picture, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /pictures
   # GET /pictures.json
+  
+  def acts_as_votable
+  end
+
+  def upvote
+    @picture = Picture.find(params[:id])
+    @picture.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @picture = Picture.find(params[:id])
+    @picture.downvote_by current_user
+    redirect_to :back
+  end
+
   def index
     @pictures = Picture.all
   end
@@ -63,11 +79,6 @@ class PicturesController < ApplicationController
     end
   end
 
-  def upvote
-    @picture = Picture.find(params[:id])
-    @picture.votes.create
-    redirect_to(pictures_path)
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
