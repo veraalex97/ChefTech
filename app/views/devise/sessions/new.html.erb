@@ -1,7 +1,9 @@
-<h2>Log in</h2>
-
+<div class="container">
+<div class="panel panel-default">
+  <h5 class="panel-heading text-center">Log in</h5>
+  <div class="panel-body">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+  <div class="field panel">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
@@ -19,8 +21,12 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", style: "color:white", class: "btn stylish-color btn-block" %>
+    <%= link_to 'Back', pictures_path, style: "color:white", class: "btn stylish-color btn-block" %>
   </div>
 <% end %>
+</div>
+</div>
 
 <%= render "devise/shared/links" %>
+</div>

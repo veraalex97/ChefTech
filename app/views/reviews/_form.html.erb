@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_for(@review) do |f| %>
   <% if @review.errors.any? %>
     <div id="error_explanation">
@@ -16,10 +17,11 @@
     <%= f.text_area :comment %>
   </div>
   <div class="field">
-    <%= f.label :picture_id %><br>
+    <!-- <%= f.label :picture_id %><br> -->
     <%= f.hidden_field :picture_id, value: @picture.id %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Post Comment", style: "color:white", class: "btn stylish-color btn-block" %>
   </div>
 <% end %>
+</div>

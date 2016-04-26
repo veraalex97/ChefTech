@@ -1,8 +1,9 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
+<div class="alert alert-success" role="alert" id="notice"><%= notice %></div>
 
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar stylish-color navbar-fixed-top z-depth-1" role="navigation">
   <div class="container-fluid">
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav ">
     <% if user_signed_in? %>
     <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
     <% else %>
@@ -13,7 +14,7 @@
   </div>
 </nav>
 
-<h1>Listing Pictures</h1>
+<h4 class="page-header text-center">Listing Pictures</h4>
 
 <table>
   <thead>
@@ -47,4 +48,4 @@
 
 <br>
 
-<%= link_to 'New Picture', new_picture_path %>
+<%= link_to 'New Picture', new_picture_path, style: "color:white", class: "btn stylish-color btn-block" %>

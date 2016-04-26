@@ -1,3 +1,6 @@
+<div class="container">
+<div class="panel panel-default">
+<div class="panel-body">
 <%= form_for @picture, html: { multipart: true } do |f| %>
   <% if @picture.errors.any? %>
     <div id="error_explanation">
@@ -20,10 +23,15 @@
     <%= f.text_field :url %>
   </div> -->
   <div class="field">
-    <%= f.label :image %><br>
+    <%= f.label :image %>
+  </div>
+  <div class="field">
     <%= f.file_field :image %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit" , style: "color:white", class: "btn stylish-color btn-block" %>
   </div>
+</div>
+</div>
 <% end %>
+</div>

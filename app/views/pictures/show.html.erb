@@ -1,15 +1,21 @@
 <p id="notice"><%= notice %></p>
-<%= image_tag @picture.image(:large) %>
+
+<div class="container text-center">
+  <div class="panel-heading">
+    <!-- <strong>Title:</strong -->
+    <h4><%= @picture.title %></h4>
+  </div>
+<%= image_tag @picture.image(:medium) %>
 <p>
-  <strong>Title:</strong>
-  <%= @picture.title %>
+  <strong>Posted by:</strong>
+  <%= @picture.user.email %>
 </p>
 
 <p>
   <%= image_tag @picture.url %>
 </p>
 
-<h3>Reviews</h3>
+<!-- <h3>Reviews</h3> -->
 
 <% @picture.reviews.each do |review| %>
 	<p>
@@ -18,9 +24,11 @@
 		Added: <%= time_ago_in_words review.created_at %> ago
 	</p>
 <% end %>
+</div>
 
-<h3>New Review</h3>
+<h6 class="text-center">New Comment</h6>
 <%= render 'reviews/form' %>
-
-<%= link_to 'Edit', edit_picture_path(@picture) %> |
-<%= link_to 'Back', pictures_path %>
+<div class="container">
+<%= link_to 'Edit', edit_picture_path(@picture), style: "color:white", class: "btn stylish-color btn-block" %>
+<%= link_to 'Back', pictures_path, style: "color:white", class: "btn stylish-color btn-block" %>
+</div>
