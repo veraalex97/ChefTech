@@ -33,7 +33,7 @@ div.field, div.actions {
 }
 
 #notice {
-  color: #333;
+  color: green;
 }
 
 .field_with_errors {
@@ -65,8 +65,4 @@ div.field, div.actions {
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
-}
-
-.alert-success {
-  
 }
