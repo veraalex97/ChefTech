@@ -36,7 +36,7 @@
         <td><%= picture.title %></td>
         <!-- <td><%= image_tag picture.url %></td> -->
         <td><%= image_tag picture.image.url(:thumb) %>
-        <td><%= picture.user.email %></td>
+        <td><%= picture.user.username %></td>
         <td><%= pluralize(picture.votes.count, "vote") %></td>
         <td><%= button_to '+1', upvote_picture_path(picture), method: :post %></td>
         <td><%= link_to 'Show', picture %></td>

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  # get 'users/show'
+
   devise_for :users
   resources :reviews
+  resources :users
   resources :pictures do
     member do
       post 'upvote'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425222208) do
+ActiveRecord::Schema.define(version: 20160426213941) do
 
   create_table "pictures", force: :cascade do |t|
     t.string   "title"
@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(version: 20160425222208) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "profile_image_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "username"
+    t.text     "about"
+    t.date     "birthday"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

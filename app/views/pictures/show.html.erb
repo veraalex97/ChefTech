@@ -5,10 +5,12 @@
     <!-- <strong>Title:</strong -->
     <h4><%= @picture.title %></h4>
   </div>
-<%= image_tag @picture.image(:medium) %>
+<%= image_tag @picture.image(:large) %>
 <p>
+  <br>
   <strong>Posted by:</strong>
-  <%= @picture.user.email %>
+  <%= @picture.user.username %>
+  <br>
 </p>
 
 <p>
@@ -19,9 +21,10 @@
 
 <% @picture.reviews.each do |review| %>
 	<p>
-		<%= review.comment %>
+    Added: <%= time_ago_in_words review.created_at %> ago
+    by: <%= @picture.user.username  %>
 		<br>
-		Added: <%= time_ago_in_words review.created_at %> ago
+    <%= review.comment %>
 	</p>
 <% end %>
 </div>

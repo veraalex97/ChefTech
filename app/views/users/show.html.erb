@@ -1,0 +1,37 @@
+<nav class="navbar stylish-color navbar-fixed-top z-depth-1" role="navigation">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav navbar-right">
+    <li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
+    <% if user_signed_in? %>
+    <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+    <% else %>
+    <li><%= link_to "Sign In", new_user_session_path %></li>
+    <li><%= link_to "Sign Up", new_user_registration_path %></li>
+    <% end %>
+    </ul>
+  </div>
+</nav>
+
+
+
+<div class="page-header text-center">
+<h3 class="text-center"><%= @user.username   %></h3>
+</div>
+<div class="text-center">
+  <p>
+  First Name: <%= @user.first_name %>
+  Last Name: <%= @user.last_name %>
+  </p>
+
+<div><%= image_tag(@user.avatar.url(:medium)) %></div>
+
+  <% @user_pictures.each do |v| %>
+    <%= link_to picture_url, picture_path %>
+  <% end %>
+</div>
+
+<div class="text-center">
+<h4>About</h4>
+  <%= @user.about %>
+</div>
+<br />
