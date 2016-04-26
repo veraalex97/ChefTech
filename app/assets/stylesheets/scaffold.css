@@ -1,9 +1,21 @@
-body { background-color: #fff; color: #333; }
+body { 
+  background: url("/assets/backgroung.jpg"); 
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size:   13px;
   line-height: 18px;
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  text-align: center;
 }
 
 pre {
