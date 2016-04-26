@@ -1,11 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<% if user_signed_in? %>
-<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-<% else %>
-<%= link_to "Sign In", new_user_session_path %>
-<%= link_to "Sign Up", new_user_registration_path %>
-<% end %>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+    <% if user_signed_in? %>
+    <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+    <% else %>
+    <li><%= link_to "Sign In", new_user_session_path %></li>
+    <li><%= link_to "Sign Up", new_user_registration_path %></li>
+    <% end %>
+    </ul>
+  </div>
+</nav>
 
 <h1>Listing Pictures</h1>
 

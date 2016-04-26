@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'aws-sdk'
 
 gem "paperclip", "~> 5.0.0.beta1"
 
