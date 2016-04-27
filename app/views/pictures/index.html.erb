@@ -1,7 +1,7 @@
 <!-- <p id="notice"><%= notice %></p> -->
 <!--<div class="alert alert-success" role="alert" id="notice"><%= notice %></div>-->
 
-<nav class="navbar stylish-color navbar-fixed-top z-depth-1" role="navigation">
+<!-- <nav class="navbar stylish-color navbar-fixed-top z-depth-1" role="navigation">
   <div class="container-fluid">
     <ul class="nav navbar-nav ">
     <% if user_signed_in? %>
@@ -11,6 +11,32 @@
     <li><%= link_to "Sign Up", new_user_registration_path %></li>
     <% end %>
     </ul>
+  </div>
+</nav> -->
+
+<nav class="navbar stylish-color navbar-fixed-top z-depth-1" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+    <div class="container-fluid">
+    <ul class="nav navbar-nav navbar-right">
+    <li><%= link_to('Home', :pictures)%></li>
+    <% if user_signed_in? %>
+    <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+    <% else %>
+    <li><%= link_to "Sign In", new_user_session_path %></li>
+    <li><%= link_to "Sign Up", new_user_registration_path %></li>
+    <% end %>
+    </ul>
+  </div>
+  </div>
   </div>
 </nav>
 
@@ -65,5 +91,3 @@
 <br>
 
 <%= link_to 'New Picture', new_picture_path, style: "color:white", class: "btn stylish-color btn-block" %>
-
-

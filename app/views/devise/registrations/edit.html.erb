@@ -1,4 +1,35 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<nav class="navbar stylish-color navbar-fixed-top z-depth-1" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+    <div class="container-fluid">
+    <ul class="nav navbar-nav navbar-right">
+    <li><%= link_to('Home', :pictures)%></li>
+    <% if user_signed_in? %>
+    <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+    <% else %>
+    <li><%= link_to "Sign In", new_user_session_path %></li>
+    <li><%= link_to "Sign Up", new_user_registration_path %></li>
+    <% end %>
+    </ul>
+  </div>
+  </div>
+  </div>
+</nav>
+
+
+
+<div class="container center_div">
+<div class="panel panel-default ">
+<h4 class="panel-heading text-center">Edit <%= resource_name.to_s.humanize %></h4>
+<div class="panel-body">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -18,7 +49,7 @@
     <%= f.label :avatar %><br />
     <%= f.file_field :avatar %>
   </div>
-  
+
   <div class="field">
     <%= f.label :about %><br />
     <%= f.text_field :about, autofocus: true %>
@@ -60,12 +91,16 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", style: "color:white", class: "btn stylish-color btn-block" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<!-- <h3>Cancel my account</h3> -->
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, style: "color:white", class: "btn stylish-color btn-block" %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back, style: "color:white", class: "btn stylish-color btn-block" %>
+</div>
+</div>
+</div>
+</div>
