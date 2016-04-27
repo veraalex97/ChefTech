@@ -14,14 +14,14 @@
   </thead>
 
   <tbody>
-    <% @pictures.each do |picture| %>
+    <!-- <% @pictures.each do |picture| %> -->
       <tr>
         <td><% @pictures.each do |picture| %>
           <h6><%= link_to picture.title, picture %><br>
             Submitted <%= time_ago_in_words(picture.created_at) %>
-            by <%= picture.user.email %>
+            by <%= picture.user.username %>
           </h6>
-
+          <!-- <% end %> -->
           <%= link_to like_picture_path(picture), method: :put do %>
           Upvote
             <%= picture.get_upvotes.size %>
@@ -30,10 +30,8 @@
           <%= link_to dislike_picture_path(picture), method: :put do %>
           Downvote
             <%= picture.get_downvotes.size %>
-          <% end %>
+
           <% end %></td>
-        <td><%= picture.title %></td>
-        <!-- <td><%= image_tag picture.url %></td> -->
         <td><%= image_tag picture.image.url(:thumb) %>
         <td><%= picture.user.username %></td>
         <td><%= link_to 'Show', picture %></td>
@@ -42,8 +40,9 @@
         <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
-    <% end %>
+    <!-- <% end %> -->
   </tbody>
+
 
 </table>
 
