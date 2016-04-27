@@ -30,21 +30,35 @@
 <div class="page-header text-center">
 <h3 class="text-center"><%= @user.username   %></h3>
 </div>
-<div class="text-center">
-  <p>
-  First Name: <%= @user.first_name %>
-  Last Name: <%= @user.last_name %>
-  </p>
-
-<div><%= image_tag(@user.avatar.url(:medium)) %></div>
-
-  <% @user_pictures.each do |v| %>
-    <%= link_to picture_url, picture_path %>
-  <% end %>
-</div>
 
 <div class="text-center">
-<h4>About</h4>
-  <%= @user.about %>
+  <div class="row-justified">
+    <div class="col-md-4 text-center">
+      <div href="#" class="thumbnail">
+        <%= image_tag(@user.avatar.url(:medium)) %>
+        <div class="caption">
+        <p>Name: <%= @user.first_name %></p>
+        <p>Last Name: <%= @user.last_name %></p>
+    </div>
+    </div>
+  </div>
 </div>
-<br />
+
+<!-- <div class="table">
+<div class="row">
+  <div class="col-md-6">
+<h5>About</h5>
+<p><%= @user.about %></p>
+  </div>
+</div>
+</div> -->
+
+<div class="row">
+       <div class="col-md-7">
+           <div class="card blue-grey darken-1">
+               <div class="card-content white-text">
+                 <p><%= @user.about %></p>
+               </div>
+             </div>
+           </div>
+         </div>
