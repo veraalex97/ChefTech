@@ -2,17 +2,34 @@
 <html>
 <head>
   <title>PhotoGallery</title>
+  <link rel="icon" type="image/png" href="/public/favicon-32x32.png" sizes="32x32" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <h5>WHERE CHEFS UPLOAD AND SHARE RECEPIES</h5>
 </head>
 <body>
-
+  <nav class="navbar stylish-color navbar-fixed-top z-depth-1" role="navigation">
+    <div class="container-fluid">
+      <a class="logo" href="<%= pictures_path%>"><img src=" /assets/ctlogoanimationlong7.png "alt="Chef Tech"  height="100" width="140" onmouseover="this.src=' /assets/ctlogoanimation.gif '" onmouseout="this.src=' /assets/ctlogoanimationlong7.png '"class="img-responsive center-block">
+      </a>
+      <ul class="nav navbar-nav ">
+        <% if user_signed_in? %>
+          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+        <% else %>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
 <!-- <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 <%= link_to "Sign Up", new_user_registration_path %>
 <%= link_to "Sing In", new_user_session_path %> -->
-<%= yield %>
+  <%= yield %>
+  <a href="<%= edit_user_registration_path %>"><img src=" /assets/ctanimation7.png "alt="Smiley face"  height="100" width="125" onmouseover="this.src=' /assets/ctanimation.gif '" onmouseout="this.src=' /assets/ctanimation7.png '"class="img-responsive center-block">
+</a>
 
 
 </body>

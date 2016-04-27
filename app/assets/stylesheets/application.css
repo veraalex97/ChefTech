@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+ @font-face {
+   font-family: 'Avenir Next LT Pro Italic';
+   font-style: normal;
+   font-weight: normal;
+   src: local('Avenir Next LT Pro Italic'), url('AvenirNextLTPro-It.woff') format('woff');
+ }
+ @font-face {
+   font-family: 'Avenir Next LT Pro Bold Condensed Italic';
+   font-style: normal;
+   font-weight: normal;
+   src: local('Avenir Next LT Pro Bold Condensed Italic'), url('AvenirNextLTPro-BoldCnIt.woff') format('woff');
+ }

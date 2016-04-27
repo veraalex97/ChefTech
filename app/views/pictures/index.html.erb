@@ -1,47 +1,4 @@
-<!-- <p id="notice"><%= notice %></p> -->
-<!--<div class="alert alert-success" role="alert" id="notice"><%= notice %></div>-->
-
-<!-- <nav class="navbar stylish-color navbar-fixed-top z-depth-1" role="navigation">
-  <div class="container-fluid">
-    <ul class="nav navbar-nav ">
-    <% if user_signed_in? %>
-    <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-    <% else %>
-    <li><%= link_to "Sign In", new_user_session_path %></li>
-    <li><%= link_to "Sign Up", new_user_registration_path %></li>
-    <% end %>
-    </ul>
-  </div>
-</nav> -->
-
-<nav class="navbar stylish-color navbar-fixed-top z-depth-1" role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-    <div class="container-fluid">
-    <ul class="nav navbar-nav navbar-right">
-    <li><%= link_to('Home', :pictures)%></li>
-    <% if user_signed_in? %>
-    <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-    <% else %>
-    <li><%= link_to "Sign In", new_user_session_path %></li>
-    <li><%= link_to "Sign Up", new_user_registration_path %></li>
-    <% end %>
-    </ul>
-  </div>
-  </div>
-  </div>
-</nav>
-
-<h4 class="page-header text-center">Chef Tech: Cooking With Fire</h4>
-<div style="height:355px;width:100%;border:9px solid black;font:16px/26px Georgia, Garamond, Serif;background-color: rgba(255, 255, 255, 0.5);overflow:auto;">
+<div style="height:355px;width:100%;border:9px solid; border-color: #4B515D;font:16px/26px Georgia, Garamond, Serif;background-color: rgba(255, 255, 255, 0.5);overflow:auto;">
 
 
 <table class="table">
@@ -57,14 +14,14 @@
   </thead>
 
   <tbody>
-    <!-- <% @pictures.each do |picture| %> -->
+    <% @pictures.each do |picture| %>
       <tr>
         <td><% @pictures.each do |picture| %>
           <h6><%= link_to picture.title, picture %><br>
             Submitted <%= time_ago_in_words(picture.created_at) %>
-            by <%= picture.user.username %>
+            by <%= picture.user.email %>
           </h6>
-          <!-- <% end %> -->
+
           <%= link_to like_picture_path(picture), method: :put do %>
           Upvote
             <%= picture.get_upvotes.size %>
@@ -73,8 +30,10 @@
           <%= link_to dislike_picture_path(picture), method: :put do %>
           Downvote
             <%= picture.get_downvotes.size %>
-          
+          <% end %>
           <% end %></td>
+        <td><%= picture.title %></td>
+        <!-- <td><%= image_tag picture.url %></td> -->
         <td><%= image_tag picture.image.url(:thumb) %>
         <td><%= picture.user.username %></td>
         <td><%= link_to 'Show', picture %></td>
@@ -83,10 +42,11 @@
         <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
-    <!-- <% end %> -->
+    <% end %>
   </tbody>
 
 </table>
+
 </div>
 <br>
 

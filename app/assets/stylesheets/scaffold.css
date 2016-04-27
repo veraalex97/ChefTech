@@ -1,13 +1,25 @@
 body {
-  background: url("/assets/backgroung.jpg");
+  background: url("/assets/backgroungnormal.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size:cover;
+  background-color: #4B515D
 }
 
+col{
+  background: url("/assets/backGRADIENT.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-color: #4B515D
+}
+p, h6, h5, h4, label {
+  color: #fff;
+  text-align: center;
+}
 body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: 'Avenir Next LT Pro Bold Condensed Italic',verdana, arial, helvetica, sans-serif !important;
   font-size:   13px;
   line-height: 18px;
+
 }
 
 th {
@@ -26,7 +38,8 @@ pre {
 
 a { color: #000; }
 a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
+a:hover { color: #fff; }
+
 
 div.field, div.actions {
   margin-bottom: 10px;
@@ -65,4 +78,14 @@ div.field, div.actions {
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
+}
+b {
+  text-align: center;
+}
+
+.stylish-color.navbar-fixed-top > div{
+  display: flex;
+}
+.logo {
+  margin-right: auto;
 }
