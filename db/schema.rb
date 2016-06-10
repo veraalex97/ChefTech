@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426213941) do
+ActiveRecord::Schema.define(version: 20160508174809) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "pictures", force: :cascade do |t|
     t.string   "title"
@@ -32,7 +35,14 @@ ActiveRecord::Schema.define(version: 20160426213941) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "reviews", ["picture_id"], name: "index_reviews_on_picture_id"
+  add_index "reviews", ["picture_id"], name: "index_reviews_on_picture_id", using: :btree
+
+  create_table "urls", force: :cascade do |t|
+    t.string   "originalurl"
+    t.string   "short"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -59,8 +69,8 @@ ActiveRecord::Schema.define(version: 20160426213941) do
     t.datetime "avatar_updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "votes", force: :cascade do |t|
     t.integer  "votable_id"
@@ -74,7 +84,8 @@ ActiveRecord::Schema.define(version: 20160426213941) do
     t.datetime "updated_at"
   end
 
-  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
-  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
+  add_foreign_key "reviews", "pictures"
 end
