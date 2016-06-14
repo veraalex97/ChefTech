@@ -14,8 +14,7 @@
  *= require_self
  */
 
- @import "bootstrap-sprockets.css"
- @import "bootstrap.css"
+
  @font-face {
    font-family: 'Avenir Next LT Pro Italic';
    font-style: normal;
